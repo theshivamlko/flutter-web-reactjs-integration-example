@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <meta
+            name="description"
+            content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png"/>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json"/>
+
+    <link rel="stylesheet" href="styles.css"/>
+    <title>React App</title>
+    <script src="./web/flutter.js" type="application/javascript" defer></script>
+
+
+    <script>
+        window.addEventListener("load", function (ev) {
+            console.log("iniside load");
+            _flutter.loader.loadEntrypoint({
+
+                // entrypoint: "%PUBLIC_URL%/web/main.dart.js",
+                serviceWorker: {
+                    //   serviceWorkerVersion: serviceWorkerVersion,
+                    // Updated: Specify the correct path to the service worker file
+                    // serviceWorkerUrl: "%PUBLIC_URL%/web/flutter_service_worker.js?v=",
+                },
+                onEntrypointLoaded: async function (engineInitializer) {
+                    console.log("onEntrypointLoaded");
+                    let appRunner = await engineInitializer.initializeEngine({
+                        // Pass a reference to "div#flutter_host" into the Flutter engine.
+                        hostElement: document.querySelector("#flutter_host")
+                    });
+                    console.log("flutter_host");
+                    await appRunner.runApp();
+                }
+            });
+        });
+    </script>
+</head>
+<body style="padding: 20px;">
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+
+<div id="chat-button">
+    <i class="fa fa-comment"></i>
+</div>
+<div id="chat-popup">
+    <div id="chat-content">
+        <iframe src="http://localhost:3000/web/"></iframe>
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@7.18.9/babel.min.js"></script>
+<script src="src/index.js"></script>
+</body>
+
+
+</body>
+
+<script>
+
+    const chatButton = document.getElementById('chat-button');
+    const chatPopup = document.getElementById('chat-popup');
+
+    chatButton.addEventListener('click', () => {
+        chatPopup.style.display = chatPopup.style.display === 'none' ? 'block' : 'none';
+    });
+
+
+</script>
+
+</html>
