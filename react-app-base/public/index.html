@@ -24,7 +24,6 @@
         window.addEventListener("load", function (ev) {
             console.log("iniside load");
             _flutter.loader.loadEntrypoint({
-
                 // entrypoint: "%PUBLIC_URL%/web/main.dart.js",
                 serviceWorker: {
                     //   serviceWorkerVersion: serviceWorkerVersion,
@@ -48,14 +47,15 @@
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
 
-<div id="chat-button">
-    <i class="fa fa-comment"></i>
-</div>
-<div id="chat-popup">
+
+<div id="chat-popup" style="display: none">
     <div id="chat-content">
         <iframe src="http://localhost:3000/web/"></iframe>
     </div>
 
+</div>
+<div id="chat-button">
+    <i class="fa fa-comment"></i>
 </div>
 
 <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
@@ -73,6 +73,8 @@
     const chatPopup = document.getElementById('chat-popup');
 
     chatButton.addEventListener('click', () => {
+        console.log('clicked');
+        console.log(chatPopup.style.display);
         chatPopup.style.display = chatPopup.style.display === 'none' ? 'block' : 'none';
     });
 

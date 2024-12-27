@@ -14,7 +14,7 @@
     cursor: pointer;
     z-index: 1000;  /* Make sure the button is on top */
   }
-  
+
   #chat-popup {
     position: fixed;
     bottom: 20px;
@@ -25,10 +25,10 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     /*padding: 10px;*/
-    /*display: none;  !* Initially hidden *!*/
-    z-index: 1001;  /* Ensure popup is above other elements */
+    display: none;  /* Initially hidden */
+    z-index: 999;  /* Ensure popup is above other elements */
   }
-  
+
   #chat-content {
     height: 100%;  /* Allow content to fill the popup */
   }
