@@ -4,7 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_demo/constants/app_constants.dart';
+import 'package:flutter_common_module/constants/app_constants.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,9 +16,9 @@ import 'providers/providers.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
-    await Firebase.initializeApp(options: firebaseConfig);
+    await Firebase.initializeApp(options: webConfig,name: "[DEFAULT]");
   } else {
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(options: androidConfig,name: "[DEFAULT]");
   }
   SharedPreferences prefs = await SharedPreferences.getInstance();
   runApp(MyApp(prefs: prefs));
@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-const firebaseConfig = FirebaseOptions(
+const webConfig = FirebaseOptions(
     apiKey: "AIzaSyAweQXnFGLTgEmU6o4y76A25TpTs31rr18",
     authDomain: "testproject-d920b.firebaseapp.com",
     projectId: "testproject-d920b",
@@ -85,3 +85,11 @@ const firebaseConfig = FirebaseOptions(
     messagingSenderId: "606983125847",
     appId: "1:606983125847:web:22147a8df6dda246bb1c12",
     measurementId: "G-DDDQMFSXCJ");
+
+const androidConfig = FirebaseOptions(
+    apiKey: "AIzaSyAZLnyBoioiYTkc4y8pZ5I88RMM4us9aEQ",
+    authDomain: "testproject-d920b.firebaseapp.com",
+    projectId: "testproject-d920b",
+    storageBucket: "testproject-d920b.appspot.com",
+    messagingSenderId: "606983125847",
+    appId: '1:606983125847:android:c230f345900527b5bb1c12' );

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_chat_demo/constants/firestore_constants.dart';
+import 'package:flutter_common_module/constants/firestore_constants.dart';
 
 class HomeProvider {
   final FirebaseFirestore firebaseFirestore;

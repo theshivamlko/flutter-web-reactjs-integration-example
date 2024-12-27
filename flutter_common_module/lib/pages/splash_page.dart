@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_demo/constants/color_constants.dart';
-import 'package:flutter_chat_demo/pages/pages.dart';
-import 'package:flutter_chat_demo/providers/auth_provider.dart';
+import 'package:flutter_common_module/constants/color_constants.dart';
+import 'package:flutter_common_module/pages/pages.dart';
+import 'package:flutter_common_module/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class SplashPage extends StatefulWidget {
@@ -24,8 +24,8 @@ class SplashPageState extends State<SplashPage> {
         peerId: kIsWeb ? "2" : "1",
         peerNickname: kIsWeb ? "Shivam" : "Customer Support",
         peerAvatar: kIsWeb
-            ? "https://media.licdn.com/dms/image/v2/D5603AQGWT74bIPx4Ew/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729153302022?e=1740009600&v=beta&t=EUpfd_BYoQtHrOx2yredq4Plxn6OEWKkfMmSxOs3Wkw"
-            : "https://cdn-icons-png.flaticon.com/512/958/958417.png",
+            ? "https://cdn-icons-png.flaticon.com/512/958/958417.png":"https://media.licdn.com/dms/image/v2/D5603AQGWT74bIPx4Ew/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729153302022?e=1740009600&v=beta&t=EUpfd_BYoQtHrOx2yredq4Plxn6OEWKkfMmSxOs3Wkw"
+             ,
       );
       Navigator.pushReplacement(
         context,
@@ -37,31 +37,6 @@ class SplashPageState extends State<SplashPage> {
     });
   }
 
-  void _checkSignedIn() async {
-    final authProvider = context.read<AuthProvider>();
-    bool isLoggedIn = await authProvider.isLoggedIn();
-    if (isLoggedIn) {
-      ChatPageArguments args = ChatPageArguments(
-        peerId: kIsWeb ? "2" : "1",
-        peerNickname: kIsWeb ? "Shivam" : "Customer Support",
-        peerAvatar: kIsWeb
-            ? "https://media.licdn.com/dms/image/v2/D5603AQGWT74bIPx4Ew/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1729153302022?e=1740009600&v=beta&t=EUpfd_BYoQtHrOx2yredq4Plxn6OEWKkfMmSxOs3Wkw"
-            : "https://cdn-icons-png.flaticon.com/512/958/958417.png",
-      );
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-            builder: (context) => ChatPage(
-                  arguments: args,
-                )),
-      );
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

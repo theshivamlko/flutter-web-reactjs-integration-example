@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_demo/constants/app_constants.dart';
-import 'package:flutter_chat_demo/constants/color_constants.dart';
-import 'package:flutter_chat_demo/pages/pages.dart';
-import 'package:flutter_chat_demo/providers/auth_provider.dart';
-import 'package:flutter_chat_demo/widgets/widgets.dart';
+import 'package:flutter_common_module/constants/app_constants.dart';
+import 'package:flutter_common_module/constants/color_constants.dart';
+import 'package:flutter_common_module/pages/pages.dart';
+import 'package:flutter_common_module/providers/auth_provider.dart';
+import 'package:flutter_common_module/widgets/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
